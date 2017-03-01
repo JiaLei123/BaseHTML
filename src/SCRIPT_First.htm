@@ -8,9 +8,15 @@
     function displayDate(){
         document.getElementById("demo").innerHTML = Date();
     }
-
-
+    function myFunction(){
+        var x = document.getElementById("demo1").value;
+        if(x=="" || isNaN(x))
+        {
+            alert(x + "is not Number");
+        }
+    }
     </script>
+    <script src="script/common.js"></script>
 </head>
 
 <body>
@@ -18,6 +24,16 @@
     <p id="demo">this is the phase</p>
     <button type="button" onclick="displayDate()">Show Date</button>
     <input type="submit" name="demo" value="Show Date" onclick="displayDate()">
+    <br>
+
+    <input id="demo1" type="text">
+    <button type="button" onclick="myFunction()">submit</button>
+
+    
+    <br><br><br>
+    <img id="myimage" onclick="changeImage()" src="http://www.runoob.com/images/pic_bulboff.gif" width="100" height="180">
+    <p>cick the light</p>
+    
 
 </body>
 
