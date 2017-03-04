@@ -41,7 +41,7 @@
         document.write(obj2 + "<br>");
     </script>
     <h1>Object</h1>
-    <p id="demo"></p>
+    <p id="object_demo"></p>
     <script>
         var obj2 =
             {
@@ -51,10 +51,24 @@
                 fulst: function()
                 {
                     return this.age + this.hit;
-                }
+                },
+                calculate: function (a, b) {
+                    return a+b;
+                },
             };
-        document.getElementById("demo").innerHTML = obj2.fulst();
+        document.getElementById("object_demo").innerHTML = obj2.fulst();
+        document.write(obj2.calculate(2,4,5,6) + "<br>");
     </script>
+    <h1>String</h1>
+    <p id="string_Demo"></p>
+    <p id="string_function"></p>
+    <script>
+        var str = "Hello world";
+        var strObj = new String("  Hello world  ");
+        document.getElementById("string_Demo").innerHTML = str[2] + " length: "+str.length;
+        document.getElementById("string_function").innerHTML = strObj.trim().split(" ");
+    </script>
+
 </body>
 
 </html>

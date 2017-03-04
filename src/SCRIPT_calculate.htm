@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+</head>
+
+<body>
+
+    <p>x=5, 返回 x==8 的比较值结果。</p>
+    <button onclick="myFunction()">尝试一下</button>
+    <p id="demo"></p>
+    
+    年龄:<input id="age" type="text"></input> 
+    <p>是否达到年龄标准</p>
+    <p id="demo1"></p>
+    <button onclick="myFunction1()">尝试一下</button>
+
+    <script>
+        function myFunction() {
+            var x = 5;
+            var y = '5'
+            var z = x;
+            document.getElementById("demo").innerHTML = "result is : "  +  x == y;
+        }
+        function myFunction1() {
+            var x = document.getElementById("age").value;
+            var isOK = (x >18)?"age is OK": "age not OK";
+            document.getElementById("demo1").innerHTML = isOK;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
