@@ -10,7 +10,15 @@
 <body>
     <p>搜索字符串 "runoob", 并显示匹配的起始位置：</p>
     <button onclick="myFunction()">点我</button>
+    <button onclick="myFunction1()">点我1</button>
     <p id="demo"></p>
+    
+    <p>正则对象的方法：</p>
+    <button onclick="myFunction2()">点我</button>
+    <button onclick="myFunction3()">点我1</button>
+    <p id="demo1"></p>
+
+
     <script>
         function myFunction(){
             var str = "abcefdefg";
@@ -18,6 +26,26 @@
             var s = str.search(re);
             document.getElementById("demo").innerHTML = s;
         }
+        function myFunction1(){
+            var str = "abcefdefg";
+            var re = /ef/g;
+            var s = str.replace(re, "*demo*");
+            document.getElementById("demo").innerHTML = s;
+        }
+
+        function myFunction2(){
+            var str = "abcefdef|gabc";
+            var re = /(x|y)/i;
+            var s = re.test(str);
+            document.getElementById("demo").innerHTML = s;
+        }
+        function myFunction3(){
+            var str = "abcefdefgabc";
+            var re = /abc/g;
+            var s = re.exec(str);
+            document.getElementById("demo").innerHTML = s;
+        }
+
     </script>
 
 </body>

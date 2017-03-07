@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <script>
+        function message() {
+            try {
+                a = 10
+                b = a + c
+            } catch (err) {
+                var text = "error:" + err;
+                alert(text);
+            }
+        }
+        function message1() {
+            try {
+                var a = document.getElementById("demo").value;
+                if (!isNaN(a)) {
+                    throw "this is number"
+                } else{
+                    throw a
+                }
+            } catch (err) {
+                var text = "error: " + err;
+                alert(text);
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <p>收到错误</p>
+    <button type="button" onclick="message()">查看消息</button>
+    <p>主动抛出错误</p>
+    <input id="demo" type="text" />
+    <button type="button" onclick="message1()">检查错误</button>
+</body>
+
+</html>
