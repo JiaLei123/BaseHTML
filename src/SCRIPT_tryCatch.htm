@@ -19,7 +19,7 @@
                 var a = document.getElementById("demo").value;
                 if (!isNaN(a)) {
                     throw "this is number"
-                } else{
+                } else {
                     throw a
                 }
             } catch (err) {
@@ -32,10 +32,13 @@
 </head>
 
 <body>
+    <script>
+        document.designMode = 'on'
+    </script>
     <p>收到错误</p>
     <button type="button" onclick="message()">查看消息</button>
     <p>主动抛出错误</p>
-    <input id="demo" type="text" />
+    <input spellcheck="true" id="demo" type="text" />
     <button type="button" onclick="message1()">检查错误</button>
 </body>
 

@@ -12,4 +12,10 @@ p {color:blue;}
 	color: black;
 	background-color: white
 }
-
+.normaldiv
+{
+	width: 80px;
+	height: 80px;
+	border: 1px solid black;
+	background-color: #bbb;
+}
