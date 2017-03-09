@@ -8,29 +8,69 @@
 </head>
 
 <body>
-    <h1>Basic example</h1>
-    <a href="www.baidu.com">
-        <img src="img/Tulips.jpg" width="100" height="100">
-    </a>
-    <div id="source" class="normaldiv" draggable="true">
-        拖动
-    </div>
-    <br>
     <h1>Intresting example</h1>
-    <div>example 1</div>
-    <div>example 1</div>
-    <div>example 1</div>
-    <div>example 1</div>
+    <div style="margin: 3px; border: 1px solid">
+    <div class="inboxdiv" draggable="true" ondragstart="dsHander(event)">example 1</div>
+    <div class="inboxdiv" draggable="true" ondragstart="dsHander(event)">example 2</div>
+    <div class="inboxdiv" draggable="true" ondragstart="dsHander(event)">example 3</div>
+    <div class="inboxdiv" draggable="true" ondragstart="dsHander(event)">example 4</div>
+    </div>
+    <div id="dest" class="divcollect">
+        <h2>Collection</h2>
+    </div>
+
+    <!--<div id="gb1" class="divcollect">
+        <h2>Collection</h2>
+    </div>-->
+
+    <img id="gb" src="img/Tulips.jpg" alt="垃圾桶" width="200" height="200">
 
 
     <script>
-        var source = document.getElementById("source");
-        source.ondragstart = function (evt) {
-            evt.dataTransfer.setData("text/plait", "www.baidu.com");
+        var dsHander = function (evt){
+            console.log("拖动作" + evt.target.innerHTML)
+            evt.dataTransfer.setData("text/plain", "<item>" + evt.target.innerHTML);
         }
-        document.ondragover = function (evt) {
-            return false;
-        }
+
+        var dest = document.getElementById("dest");
+       dest.ondrop = function(evt) {
+           console.log("Collection收到" + evt.target.innerHTML)
+           var text = evt.dataTransfer.getData("text/plain");
+           if(text.indexOf("<item>") == 0)
+           {
+               var newEle = document.createElement("div");
+               newEle.id = new Date().getUTCMilliseconds;
+               newEle.className = "inboxdiv"
+               newEle.innerHTML = text.substring(6);
+               newEle.draggable = "true";
+               newEle.ondragstart = function(evt){
+                   evt.dataTransfer.setData("text/plain", "<remove>" + newEle.id);
+               }
+               dest.appendChild(newEle);
+           }
+       }
+       dest.ondragover = function(evt) {
+           return false;
+       }
+        var gb = document.getElementById("gb");
+       gb.ondrop = function(evt) {
+           console.log("垃圾站收到" + evt.target.innerHTML)
+           var id = evt.dataTransfer.getData("text/plain");
+           if(id.indexOf("<remove>") == 0){
+               var target = document.getElementById(id.substring(8));
+               dest.removeChild(target);
+           }
+       }
+       gb.ondragover = function(evt){
+           return false;
+       }
+
+       document.ondrag = function(evt) {
+           return false;
+       }
+
+
+
     </script>
 </body>
 

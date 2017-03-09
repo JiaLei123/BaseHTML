@@ -10,25 +10,26 @@
 <body>
     <h1>Basic example</h1>
     <a href="www.baidu.com">
-        <img src="img/Tulips.jpg" width="100" height="100">
+        <img id="imgear" src="img/Tulips.jpg" width="100" height="100">
     </a>
     <div id="source" class="normaldiv" draggable="true">
         拖动
     </div>
     <br>
-    <h1>Intresting example</h1>
-    <div>example 1</div>
-    <div>example 1</div>
-    <div>example 1</div>
-    <div>example 1</div>
-
 
     <script>
         var source = document.getElementById("source");
-        source.ondragstart = function (evt) {
-            evt.dataTransfer.setData("text/plait", "www.baidu.com");
+        var imgear = document.getElementById("imgear");
+        // source.ondragstart = function (evt) {
+        //     evt.dataTransfer.setData("text/plait");
+        // }
+        imgear.ondragover = function (evt) {
+            return false;
         }
-        document.ondragover = function (evt) {
+        source.ondragend = function(evt) {
+            source.style.position = "absolute";
+            source.style.left = evt.pageX + "px";
+            source.style.top = evt.pageY + "px";
             return false;
         }
     </script>
