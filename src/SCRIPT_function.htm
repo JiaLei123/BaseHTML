@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MyHTMLTest</title>
+
+</head>
+
+<body>
+    <h1>Var part1</h1>
+    <p id="demoVlaue"></p>
+    <p id="demoObj"></p>
+    <script>
+        var a = 2;
+        var b = {
+            name:"obj",
+            value:2
+        }
+        var c = b;
+        changeValue(a);
+        changeOjb(c);
+        document.getElementById("demoVlaue").innerHTML = a;
+        document.getElementById("demoObj").innerHTML = b.value;
+
+        function changeValue(x){
+            x = 3;
+        }
+        function changeOjb(x){
+            x.vlaue = 3;
+
+        }
+    </script>
+    
+
+</body>
+
+</html>
