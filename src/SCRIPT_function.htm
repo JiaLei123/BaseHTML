@@ -8,9 +8,10 @@
 </head>
 
 <body>
-    <h1>Var part1</h1>
+    <h1>myFunction part1</h1>
     <p id="demoVlaue"></p>
     <p id="demoObj"></p>
+    <p id="demoFunction"></p>
     <script>
         var a = 2;
         var b = {
@@ -30,6 +31,22 @@
             x.vlaue = 3;
 
         }
+
+        function myFunction(a, b){
+            return a * b;
+        }
+
+        var x = myFunction.call(x, 10, 2);
+        document.getElementById("demoFunction").innerHTML = x;
+
+
+        var add = (function () {
+            var counter = 0;
+            return function () {return counter += 1;}
+        })();
+
+
+
     </script>
     
 
