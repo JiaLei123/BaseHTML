@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MyHTMLTest</title>
+    <link rel="stylesheet" type="text/css" href="css/headstyle.css">
+
+</head>
+
+<body>
+    <div id="div1" class="normaldiv">
+        <p id="p1">Hello world</p>
+    </div>
+    <div id="div2" class="normaldiv">
+
+    </div>
+
+
+    <script>
+        var p1 = document.getElementById("p1");
+        p1.addEventListener("click", function(){alert("button click")})
+        p1.addEventListener("mouseover", function(){
+            console.log("on mouse on the p1");
+            var a = document.createElement("p");
+            a.id = "p2"
+            var b = document.createTextNode("show one disk");
+            a.appendChild(b);
+            var div = document.getElementById("div2");
+            div.appendChild(a);
+        });
+        p1.addEventListener("mouseout", function(){
+            console.log("on mouse out the p1");
+            var p2 = document.getElementById("p2");
+            var div2 = p2.parentNode;
+            div2.removeChild(p2);
+        });
+
+
+    </script>
+
+</body>
+
+</html>
