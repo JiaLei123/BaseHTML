@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MyHTMLTest</title>
+    <script>
+        var i = 0;
+        var addmin = 0;
+        function showClock(){
+            var date = new Date();
+            date.setMinutes(date.getMinutes() + addmin);
+            date.setDate(date.getDate() + i);
+            var day = date.getDay();
+            var h = date.getHours();
+            var min = checktime(date.getMinutes());
+            var sec = checktime(date.getSeconds());
+
+
+            document.getElementById("clock").innerHTML = day + ":"+ h + ":" + min + ":" + sec
+            t = setTimeout(function(){showClock()}, 500);
+        }
+
+        function checktime(time){
+            if(time < 10){
+                time = "0" + time;
+            }
+            return time;
+        }
+
+        function addOneDay(){
+            i++;
+        }
+        function addOneMin() {
+            addmin++;
+        }
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <p id="clock"></p>
+        <button type="button" onclick="showClock()">show the clock</button>
+        <button type="button" onclick="addOneDay()">add 1 day</button>
+        <button type="button" onclick="addOneMin()">add 1 min</button>
+    </div>
+    
+
+</body>
+
+</html>
