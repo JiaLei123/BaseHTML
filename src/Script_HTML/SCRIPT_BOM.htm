@@ -42,7 +42,26 @@
 
             document.getElementById("Navigator").innerHTML = str;
         }
-
+        function Confirm(){
+            var str = "";
+            var x = confirm("Show Confirm");
+            if(x){
+                str = "you click yes";
+            }else{
+                str = "you click no";
+            }
+             document.getElementById("PopUP").innerHTML = str;
+        }
+        function Prompt(){
+            var str = "";
+            var x = prompt("Show Prompt", "abc");
+            if(x){
+                str = "you input:" + x;
+            }else{
+               str = "you click no";
+            }
+            document.getElementById("PopUP").innerHTML = str;
+        }
     </script>
 </head>
 
@@ -66,7 +85,13 @@
         <p id="Navigator">Navigator</p>
         <button type="button" onclick="showNav()">Navigator</button>
     </div>
-    
+    <div>
+        <p id="PopUP">PopUP</p>
+        <button type="button" onclick="alert('abc')"show alert")">Alert</button>
+        <button type="button" onclick="Confirm()">Confirm</button>
+        <button type="button" onclick="Prompt()">Prompt</button>
+    </div>
+
 
 </body>
 
