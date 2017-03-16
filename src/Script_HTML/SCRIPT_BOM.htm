@@ -62,6 +62,10 @@
             }
             document.getElementById("PopUP").innerHTML = str;
         }
+
+        function timeout(){
+            setTimeout(function(){alert("abc")}, 1000);
+        }
     </script>
 </head>
 
@@ -87,9 +91,13 @@
     </div>
     <div>
         <p id="PopUP">PopUP</p>
-        <button type="button" onclick="alert('abc')"show alert")">Alert</button>
+        <button type="button" onclick="alert('abc')">Alert</button>
         <button type="button" onclick="Confirm()">Confirm</button>
         <button type="button" onclick="Prompt()">Prompt</button>
+    </div>
+    <div>
+        <p id="PopUP">Timeout run</p>
+        <button type="button" onclick="timeout()">AlertLatter</button>
     </div>
 
 

@@ -7,6 +7,7 @@
     <script>
         var i = 0;
         var addmin = 0;
+        var myinterval;
         function showClock(){
             var date = new Date();
             date.setMinutes(date.getMinutes() + addmin);
@@ -18,8 +19,27 @@
 
 
             document.getElementById("clock").innerHTML = day + ":"+ h + ":" + min + ":" + sec
-            t = setTimeout(function(){showClock()}, 500);
+            myinterval = setTimeout(function(){showClock()}, 500);
         }
+
+        function showClock_notRun(){
+            var date = new Date();
+            date.setMinutes(date.getMinutes() + addmin);
+            date.setDate(date.getDate() + i);
+            var day = date.getDay();
+            var h = date.getHours();
+            var min = checktime(date.getMinutes());
+            var sec = checktime(date.getSeconds());
+
+
+            document.getElementById("clock").innerHTML = day + ":"+ h + ":" + min + ":" + sec
+            
+        }
+
+        function clockStart(){
+            myinterval = setInterval(function(){showClock_notRun()}, 500);
+        }
+
 
         function checktime(time){
             if(time < 10){
@@ -34,6 +54,9 @@
         function addOneMin() {
             addmin++;
         }
+        function Stop() {
+            clearInterval(myinterval);
+        }
 
     </script>
 </head>
@@ -44,7 +67,15 @@
         <button type="button" onclick="showClock()">show the clock</button>
         <button type="button" onclick="addOneDay()">add 1 day</button>
         <button type="button" onclick="addOneMin()">add 1 min</button>
+        <button type="button" onclick="Stop()">Stop</button>
     </div>
+
+    <div>
+        <p id="clock Run"></p>
+        <button type="button" onclick="clockStart()">Start</button>
+        <button type="button" onclick="Stop()">Stop</button>
+    </div>
+
     
 
 </body>
