@@ -9,15 +9,38 @@
             document.getElementById("show").innerHTML = "height: " + window.innerHeight + "width: " + window.innerHeight;
         }
         function Small(){
-            window.innerHeight = window.innerHeight - 50;
-            window.innerWidth = window.innerWidth - 50;
+            var h = window.innerHeight 
+            || document.documentElement.clientHeight
+            || document.body.clientHeight
+
+            var w = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth
+
+            window.resizeTo(w - 50, h - 50);
         }
         function Big(){
-            window.innerHeight = window.innerHeight + 50;
-            window.innerWidth = window.innerWidth + 50;
+            window.resizeTo(w + 50, h + 50);
         }
         function Close(){
             window.close();
+        }
+        function showLocation(){
+            var str = "";
+            str += location.hostname + "<br>";
+            str += location.href + "<br>";
+            str += location.pathname + "<br>";
+            str += location.port + "<br>";
+            str += location.protocol + "<br>";
+            document.getElementById("Location").innerHTML = str;
+        }
+        function showNav(){
+            var str = "";
+            str += navigator.appName + "<br>";
+            str += navigator.appCodeName + "<br>";
+            str += navigator.platform + "<br>";
+
+            document.getElementById("Navigator").innerHTML = str;
         }
 
     </script>
@@ -35,6 +58,15 @@
         <button type="button" onclick="Big()">Big</button>
         <button type="button" onclick="Close()">Close</button>
     </div>
+    <div>
+        <p id="Location">Location</p>
+        <button type="button" onclick="showLocation()">Location</button>
+    </div>
+    <div>
+        <p id="Navigator">Navigator</p>
+        <button type="button" onclick="showNav()">Navigator</button>
+    </div>
+    
 
 </body>
 
