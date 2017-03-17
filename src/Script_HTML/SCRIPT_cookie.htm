@@ -5,12 +5,60 @@
     <meta charset="utf-8">
     <title>MyHTMLTest</title>
     <script>
+        function setCookie(cnname, cnvlaue, exdays) {
+            console.log("setCookie in: " + cnvlaue);
+            var d = new Date();
+            d.setDate(d.getDate() + exdays);
+            var expire = "expires="+ d.toGMTString();
+            var strCookie = cnname + "=" + cnvlaue + ";" + expire;
+            document.cookie = strCookie;
+            console.log("setCookie: " + document.cookie);
+        }
+
+        function addCookie(cnname, cnvlaue, exdays) {
+            var d = new Date();
+            d.setDate(d.getDate() + exdays);
+            var expire = "expires="+ d.toGMTString();
+            document.cookie = cnname + "=" + cnvlaue + ";" + expire;
+        }
+
+        function getCookie(cnname) {
+            console.log("getCookie: " + document.cookie);
+            var name = cnname + "=";
+            var ca = document.cookie.split(";");
+            for(var x = 0; x < ca.length; x++){
+                var value = ca[x].trim();
+                if(value.indexOf(name) == 0){
+                    return value.substring(name.length, value.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            var username = getCookie("username");
+            if (username != ""){
+                alert("welcome again: " + username);
+            }
+            else {
+                username = prompt("Please enter your name: ", "");
+                if(username != "" && username != null){
+                    setCookie("username", username, 20);
+                }
+            }
+        }
 
 
     </script>
 </head>
 
-<body>
+<body onload="checkCookie()">
+    <div>
+        <p>cookie example</p>
+        <p id="show">cookie</p>
+        <button type="button" >add cookie</button>
+    </div>
+
 
 
 </body>
