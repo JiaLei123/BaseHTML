@@ -6,10 +6,38 @@
     <title>MyHTMLTest</title>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js">
     </script>
+    <script>
+        $(document).ready(function(){
+            $("#fadeInButton").click(function(){
+                $(".box").fadeIn("slow");
+            });
+            $("#fadeoutButton").click(function(){
+                $(".box").fadeOut("slow");
+            });
+            $("#fadeToggleButton").click(function(){
+                $(".box").fadeToggle("slow");
+            });
+            $("#fadeTo").click(function(){
+                var a = $("#opactiy");
+                var b = a[0].value
+                $(".box").fadeTo("slow", b);
+            });
+        })
+
+    </script>
 
 </head>
 
 <body>
+    <div>
+        <button type="button" id="fadeInButton">fadeIn</button><br>
+        <button type="button" id="fadeoutButton">fadeOut</button><br>
+        <button type="button" id="fadeToggleButton">fadeToggle</button><br>
+        <input type="text" id="opactiy">
+        <button type="button" id="fadeTo">fadeTo</button><br>
+        <div class="box" style="width: 30px;height: 30px;background-color: palegreen;padding: 10px;margin: 10px"></div>
+        <div class="box" style="width: 30px;height: 30px;background-color: blueviolet;padding: 10px;margin: 10px"></div>
+    </div>
 
 </body>
 
