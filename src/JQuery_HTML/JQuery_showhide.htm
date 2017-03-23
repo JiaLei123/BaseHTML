@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MyHTMLTest</title>
+    <link rel="stylesheet" type="text/css" href="../css/headstyle.css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#showButton").click(function(){
+                $("#show").show("show");
+            });
+        });
+        $(document).ready(function(){
+            $("#hideButton").click(function(){
+                $("#show").hide("slow");
+            });
+        })
+        $(document).ready(function() {
+            $("#toggleButton").click(function(){
+                $("#toggle").toggle("show");
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <button id="showButton" type="button">show</button>
+    <button id="hideButton" type="button">hide</button>
+    <div id="show" class="ex">
+        <p>站点名: Google<br> 
+        站点 URL：http://www.google.com</p>
+    </div>
+    <button id="toggleButton" type="button">toggle</button>
+    <div id="toggle" class="ex">
+        <p>站点名: Google<br> 
+        站点 URL：http://www.google.com</p>
+    </div>
+</body>
+
+</html>

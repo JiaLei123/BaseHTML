@@ -33,3 +33,9 @@ p {color:blue;}
 	border: 1px solid;
 	float: left;
 }
+.ex
+{
+	background-color: #e5eecc;
+	padding: 7px;
+	border: solid 1px #c3c3c3;
+}
