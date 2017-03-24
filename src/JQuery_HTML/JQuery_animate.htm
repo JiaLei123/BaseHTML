@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MyHTMLTest</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js">
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#Start").click(function () {
+                $(".box").animate({ left: "+=400px" }, "slow");
+                $(".box").animate({ width: "+=300px", height: "+=300px" }, "slow");
+                $(".box").animate({ fontSize: 20 });
+            });
+            $("#Stop").click(function () {
+                 $(".box").stop();
+            });
+            $("#StopALL").click(function () {
+                 $(".box").stop(true, false);
+            });
+        })
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <button type="button" id="Start">start</button><br>
+        <button type="button" id="Stop">stop</button><br>
+        <button type="button" id="StopALL">stopALL</button><br>
+        <div class="box" style="width: 100px;height: 100px;background-color: palegreen;padding: 10px;font-size: 10px;position: absolute">Jia Lei</div>
+    </div>
+</body>
+
+</html>
