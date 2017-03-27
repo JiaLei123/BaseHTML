@@ -45,6 +45,12 @@
                 $("#addDiv").css({"font-size":"xx-small","color":"greenyellow"})
             });
 
+            $("#getSize").click(function () {
+                var width = $("#addDiv").width;
+                var height = $("#addDiv").height;
+
+                $("#size").text($("#addDiv").width() + " ："+ $("#addDiv").height() + " ："+  $("#addDiv").innerWidth() + " ："+  $("#addDiv").innerHeight() + " ："+ $("#addDiv").outerWidth() + " ："+ $("#addDiv").outerHeight())
+            });
         })
     </script>
 
@@ -65,6 +71,8 @@
         <button type="button" id="AddBlue">Add Blue</button>
         <button type="button" id="RemoveBlue">remove Blue</button>
         <button type="button" id="Small">Small</button>
+        <button type="button" id="getSize">Small</button>
+        <p id="size"></p>
     </div>
     <div id="addDiv" class="ex">
 
