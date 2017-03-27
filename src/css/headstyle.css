@@ -39,3 +39,9 @@ p {color:blue;}
 	padding: 7px;
 	border: solid 1px #c3c3c3;
 }
+.biggerFont
+{
+	font-size: xx-large;
+	font-weight: bold;
+	color: greenyellow;
+}

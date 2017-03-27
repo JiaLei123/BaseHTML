@@ -6,19 +6,46 @@
     <title>MyHTMLTest</title>
     <link rel="stylesheet" type="text/css" href="../css/headstyle.css">
     <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js">
+
     </script>
     <script>
-        $(document).ready(function() {
-            $("#Get").click(function(){
+        $(document).ready(function () {
+            $("#Get").click(function () {
                 $("#showGetValue").text($("#getvalue").text())
             });
-            $("#GetByFunction").click(function(){
-                $("#showGetValue").text(function(i, orgvalue){
+            $("#GetByFunction").click(function () {
+                $("#showGetValue").text(function (i, orgvalue) {
                     return orgvalue + "idnex is " + i;
                 })
             });
-        })
+            $("#addByHead").click(function () {
+                var add = $("<p></p>").text("LOL");
+                $("#addDiv").append(add);
+            });
+            $("#addByEnd").click(function () {
+                var add = $("<p></p>").text("END");
+                $("#addDiv").after(add)
+            });
 
+            $("#remove").click(function () {
+                $("#addDiv").remove();
+            });
+
+            $("#empty").click(function () {
+                $("#addDiv").empty()
+            });
+
+            $("#AddBlue").click(function () {
+                $("#addDiv").addClass("biggerFont")
+            });
+            $("#RemoveBlue").click(function () {
+                $("#addDiv").removeClass("biggerFont")
+            });
+            $("#Small").click(function () {
+                $("#addDiv").css({"font-size":"xx-small","color":"greenyellow"})
+            });
+
+        })
     </script>
 
 </head>
@@ -29,6 +56,17 @@
         <button id="Get" type="button">Get Vlaue</button><br>
         <button id="GetByFunction" type="button">GetByFunction Vlaue</button>
         <p id="getvalue">This is My Value</p>
+    </div>
+    <div id="button" class="ex">
+        <button type="button" id="addByHead">Add By Head</button>
+        <button type="button" id="addByEnd">Add By End</button>
+        <button type="button" id="remove">Remove</button>
+        <button type="button" id="empty">Empty</button>
+        <button type="button" id="AddBlue">Add Blue</button>
+        <button type="button" id="RemoveBlue">remove Blue</button>
+        <button type="button" id="Small">Small</button>
+    </div>
+    <div id="addDiv" class="ex">
 
     </div>
 
